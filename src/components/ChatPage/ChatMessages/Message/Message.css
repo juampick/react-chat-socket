@@ -3,7 +3,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     margin-top: 24px;
-    padding: 12px 8px;
+    padding: 0 8px 24px;
     word-break: break-word;
     border-radius: 4px;
     color: black;
@@ -21,7 +21,6 @@
 
 .message-title {
     display: flex;
-    /* justify-content: center; */
 }
 
 .username {
@@ -32,6 +31,7 @@
 .time {
     font-size: 10px;
     color: gray;
+    line-height: 19px;
 }
 
 .text-message {

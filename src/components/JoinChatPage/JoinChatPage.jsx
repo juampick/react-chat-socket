@@ -4,18 +4,18 @@ import "./JoinChatPage.css";
 
 const JoinChatPage = () => {
   const [userName, setUserName] = React.useState("");
-  // const [buttonIsDisabled, setButtonIsDisabled] = React.useState(true);
+  const [buttonIsDisabled, setButtonIsDisabled] = React.useState(true);
 
   const handleUserNameChange = (event) => {
     setUserName(event.target.value);
-    // if (event.target.value !== '') setButtonIsDisabled(false);
-    // if (event.target.value === '') setButtonIsDisabled(true);
+    if (event.target.value !== '') setButtonIsDisabled(false);
+    if (event.target.value === '') setButtonIsDisabled(true);
   };
 
   return (
     <div className="join-chat-container">
       <h2 className="title">Join Chat</h2>
-      <label for="username" className="username-legend">Please enter your username</label>
+      <label htmlFor="username" className="username-legend">Please enter your username</label>
       <input
         id="username"
         type="text"
@@ -24,8 +24,8 @@ const JoinChatPage = () => {
         onChange={handleUserNameChange}
         className="text-input-field"
       />
-      {/* next-enter-room-button--disabled */}
-      <Link to={`/chat/${userName}`} className="next-enter-room-button">
+      
+      <Link to={`/chat/${userName}`} className={`next-enter-room-button ${buttonIsDisabled ? 'next-enter-room-button--disabled' : ''}`}>
         Next
       </Link>
     </div>

@@ -7,23 +7,17 @@ const ChatForm = ({onChangeText, onSendMessage}) => {
 
     const handleNewMessageChange = (event) => {
         setNewMessage(event.target.value);
-        onChangeText(event.target.value);
+        onChangeText(event.target.value);    
         if (event.target.value !== '') setIsDisabled(false);
+        if (event.target.value === '') setIsDisabled(true);
     };
 
     const handleSendMessage = (e) => {
         e.preventDefault();
         setNewMessage("");
+        setIsDisabled(true);
         onSendMessage(newMessage);
     };
-
-    const submitButtonClass = (disabled) => {
-        let className = "send-message-button"
-        if (disabled) {
-            className+= ' disabled';
-        }
-        return className;
-    }
 
     return (
         <form onSubmit={handleSendMessage}>
@@ -36,7 +30,7 @@ const ChatForm = ({onChangeText, onSendMessage}) => {
                 />
                 <input
                     type="submit"
-                    className={submitButtonClass(isDisabled)}
+                    className={`send-message-button ${isDisabled ? 'send-message-button--disabled' : ''}`}
                     value="Send"
                     disabled={isDisabled}/>
             </div>

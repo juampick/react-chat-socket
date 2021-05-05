@@ -18,6 +18,13 @@
     bottom: 20px;
     border: none;
     background: none;
+    color: #ff8203;
+    cursor: pointer;
+}
+
+.send-message-button--disabled {
+    color: #9a9a9a;
+    cursor: default;
 }
 
 .new-message-input-field, .send-message-button {
