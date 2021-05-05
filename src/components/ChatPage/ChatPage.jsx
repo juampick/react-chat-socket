@@ -4,11 +4,12 @@ import { getGiphyGifByQuery } from '../../services/giphyApi';
 import ChatMessages from "./ChatMessages/ChatMessages";
 import ChatForm from "./ChatForm/ChatForm";
 import TypersInfo from "./TypersInfo/TypersInfo";
+import LastEvents from "./LastEvents/LastEvents";
 import "./ChatPage.css";
 
 const ChatContainer = (props) => {
   const { username } = props.match.params;
-  const { messages, typers, sendTextMessageEvent, sendTypingEvent, sendImageMessageEvent } = useChat(username); // Creates a websocket and manages messaging
+  const { messages, typers, userConnectedStatus, userDisconnectedStatus, sendTextMessageEvent, sendTypingEvent, sendImageMessageEvent } = useChat(username); // Creates a websocket and manages messaging
   const [searchGifQuery, setSearchGifQuery] = useState(null);
   const [errorSearchGifQuery, setErrorSearchGifQuery] = useState(null);
   const gifImageDetectionRegex = new RegExp(/^(\/gif)\s[a-zA-Z0-9]+/, 'gm');
@@ -55,6 +56,10 @@ const ChatContainer = (props) => {
         typers={typers}
         currentUsername={username} />
       <p className="error-searchgif">{errorSearchGifQuery !== null ? errorSearchGifQuery : null}</p>
+      <LastEvents 
+        userConnectedStatus={userConnectedStatus}
+        userDisconnectedStatus={userDisconnectedStatus}
+        currentUsername={username} />
     </div>
   );
 };

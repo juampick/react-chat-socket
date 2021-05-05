@@ -16,6 +16,8 @@ const SOCKET_SERVER_URL = process.env.SOCKET_IO_SERVER;
 const useChat = (userName) => {
   const [messages, setMessages] = useState([]); // Messages array
   const [typers, setTypers] = useState([]); // Typers array
+  const [userConnectedStatus, setUserConnectedStatus] = useState(null);
+  const [userDisconnectedStatus, setUserDisconnectedStatus] = useState(null);
   const socketRef = useRef();
 
   useEffect(() => {
@@ -25,15 +27,13 @@ const useChat = (userName) => {
       query: { username:  userName }
     });
 
-    // Events to subscribe
+    // Subscribed events
     socketRef.current.on(SUBSCRIBE_USER_CONNECTED_EVENT, username => {
-      // console.log(`user-connected: ${username}`);
-      //ToDo: save this in a variable? present on chat component?
+      setUserConnectedStatus(username);
     })
 
     socketRef.current.on(SUBSCRIBE_USER_DISCONNECTED_EVENT, username => {
-      // console.log(`user-disconnected: ${username}`);
-      //ToDo: save this in a variable? present on chat component?
+      setUserDisconnectedStatus(username);
     })
 
     // Listens for incoming messages
@@ -68,7 +68,10 @@ const useChat = (userName) => {
     socketRef.current.emit(EMIT_IMAGE_MESSAGE_EVENT, {url: url, alt: altString});
   }
 
-  return { messages, typers, sendTextMessageEvent, sendTypingEvent, sendImageMessageEvent };
+  return { 
+    messages, typers, userConnectedStatus, userDisconnectedStatus, // info
+    sendTextMessageEvent, sendTypingEvent, sendImageMessageEvent // functions
+  };
 };
 
 export default useChat;

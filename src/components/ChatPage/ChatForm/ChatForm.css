@@ -10,12 +10,14 @@
     resize: none;
     border-radius: 10px;
     line-height: 1;
+    height: 40px;
+    margin-top: 15px;
 }
 
 .send-message-button {
     position: absolute;
     right: 20px;
-    bottom: 20px;
+    bottom: 16px;
     border: none;
     background: none;
     color: #ff8203;

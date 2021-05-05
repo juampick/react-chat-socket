@@ -15,7 +15,7 @@ const ChatMessages = ({messages}) => {
             {messages.map((message) => (
                 <Message key={message.uuid} message={message} />
             ))}
-            <AlwaysScrollToBottom />
+            <AlwaysScrollToBottom key="last-element"/>
             </ol>
         </div>
     );
