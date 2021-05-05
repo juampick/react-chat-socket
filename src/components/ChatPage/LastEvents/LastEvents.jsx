@@ -9,7 +9,7 @@ const LastEvents = ({userConnectedStatus, userDisconnectedStatus, currentUsernam
             connected = <span>{userConnectedStatus} connected</span>
         }
 
-        if (userDisconnectedStatus && userConnectedStatus !== currentUsername){
+        if (userDisconnectedStatus && userDisconnectedStatus !== currentUsername){
             disconnected = <span>{userDisconnectedStatus} disconnected</span>
         }
         return [
