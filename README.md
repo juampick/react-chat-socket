@@ -15,4 +15,4 @@ npm start
 ```
 
 ## Demo
-You can also see it online: <LINK>
+You can also see it online: [Demo](http://juampick-react-chat.s3-website-us-east-1.amazonaws.com)
