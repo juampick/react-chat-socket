@@ -1,0 +1,7 @@
+body {
+    margin: 0;
+}
+
+body, input, button, a, textarea {
+    font-family: Arial, sans-serif;
+}

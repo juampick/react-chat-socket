@@ -13,18 +13,12 @@ const ChatContainer = (props) => {
   const [errorSearchGifQuery, setErrorSearchGifQuery] = useState(null);
   const gifImageDetectionRegex = new RegExp(/^(\/gif)\s[a-zA-Z0-9]+/, 'gm');
 
-  useEffect((props) => {
-    // console.log(username);
-    //todo: check this checking parameter
-      // history.push("/");
-  }, [username])
-
   useEffect(() => {
     async function getGiphyGif() {
       if (searchGifQuery === null) return
       const url = await getGiphyGifByQuery(searchGifQuery);
       if (url) sendImageMessageEvent(url, searchGifQuery)
-      if (!url) setErrorSearchGifQuery(`There are not gif with the current query: ${searchGifQuery}`)
+      if (!url) setErrorSearchGifQuery(`No gifs found with the last search: ${searchGifQuery}`)
     }
 
     getGiphyGif();
@@ -57,7 +51,9 @@ const ChatContainer = (props) => {
       <ChatForm
         onChangeText={handleNewMessageChange}
         onSendMessage={handleSendMessage} />
-      <TypersInfo typers={typers} />
+      <TypersInfo
+        typers={typers}
+        currentUsername={username} />
       <p className="error-searchgif">{errorSearchGifQuery !== null ? errorSearchGifQuery : null}</p>
     </div>
   );

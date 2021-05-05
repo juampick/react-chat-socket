@@ -1,14 +1,19 @@
 .chat-room-container {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    position: absolute;
     display: flex;
     flex-direction: column;
-    margin: 16px;
+    overflow: hidden;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    max-height: calc(100vh - 50px);
+    box-sizing: border-box;
+    padding: 24px;
 }
 
 .error-searchgif {
-    color: red;
+    font-size: 14px;
 }

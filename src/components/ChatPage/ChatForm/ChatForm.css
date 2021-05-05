@@ -1,18 +1,23 @@
+.form-container {
+    position: relative;
+}
+
 .new-message-input-field {
-    height: 200px;
-    max-height: 50%;
-    font-size: 20px;
-    padding: 8px 12px;
+    width: 100%;
+    font-size: 14px;
+    padding: 12px 70px 12px 12px;
+    box-sizing: border-box;
     resize: none;
+    border-radius: 10px;
+    line-height: 1;
 }
 
 .send-message-button {
-    font-size: 28px;
-    font-weight: 600;
-    color: white;
-    background: #31a24c;
-    padding: 24px 12px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
     border: none;
+    background: none;
 }
 
 .new-message-input-field, .send-message-button {

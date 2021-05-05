@@ -27,18 +27,19 @@ const ChatForm = ({onChangeText, onSendMessage}) => {
 
     return (
         <form onSubmit={handleSendMessage}>
-            <textarea
-                value={newMessage}
-                onChange={handleNewMessageChange}
-                placeholder="Message"
-                className="new-message-input-field"
-                required
-            />
-            <input
-                type="submit"
-                className={submitButtonClass(isDisabled)}
-                name="Send"
-                disabled={isDisabled}/>
+            <div className="form-container">
+                <textarea
+                    value={newMessage}
+                    onChange={handleNewMessageChange}
+                    placeholder="Message"
+                    className="new-message-input-field"
+                />
+                <input
+                    type="submit"
+                    className={submitButtonClass(isDisabled)}
+                    value="Send"
+                    disabled={isDisabled}/>
+            </div>
         </form>
     );
 };

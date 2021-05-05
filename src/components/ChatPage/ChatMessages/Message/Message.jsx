@@ -8,9 +8,9 @@ const FORMAT_TIME = 'h:mm a';
 const Message = ({message}) => {
     const renderMessage = (message) => {
         if (message.type == 'text'){
-            return <p>{message.text}</p>;
+            return <textarea className="text-message" defaultValue={message.text}/>;
         } else if (message.type == 'image'){
-            return <img src={message.url} alt={message.alt} />
+            return <img className="image-message" src={message.url} alt={message.alt} />
         }
     }
 
@@ -20,9 +20,14 @@ const Message = ({message}) => {
 
     return (
         <li className='message-item'>
-            <img src={generateUIAvatar(message.username)} />
-            <p>Time: {moment(message.time).format(FORMAT_TIME)}</p>
-            {renderMessage(message)}
+            <img className="avatar" src={generateUIAvatar(message.username)} />
+            <div className="message-content">
+                <span className="message-title">
+                    <span className="username">{message.username}</span>
+                    <span className="time">{moment(message.time).format(FORMAT_TIME)}</span>
+                </span>
+                {renderMessage(message)}
+            </div>
         </li>
     );
 };

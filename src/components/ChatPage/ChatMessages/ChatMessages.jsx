@@ -1,6 +1,12 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
 import Message from "./Message/Message";
 import "./ChatMessages.css"
+
+const AlwaysScrollToBottom = () => {
+    const elementRef = useRef();
+    useEffect(() => elementRef.current.scrollIntoView());
+    return <div ref={elementRef} />;
+};
 
 const ChatMessages = ({messages}) => {
     return (
@@ -9,6 +15,7 @@ const ChatMessages = ({messages}) => {
             {messages.map((message) => (
                 <Message key={message.uuid} message={message} />
             ))}
+            <AlwaysScrollToBottom />
             </ol>
         </div>
     );
