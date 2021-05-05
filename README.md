@@ -1,6 +1,5 @@
 # Juampick React Chat Socket App
-This is an App made for Pager interview process build using React and Pager SocketIO Backend.
-
+This is a sample React Chat App made built using React and SocketIO Backend (it doesn't include one, you should provide. Only FE app).
 
 ## Install dependencies
 To install dependencies, use
@@ -12,6 +11,12 @@ npm install
 To run this locally you should execute:
 ```
 npm start
+```
+
+## Build
+To compile and packed the project
+```
+npm run build
 ```
 
 ## Demo
